@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { TextInputComponent } from './components/text-input/text-input.component';
+import { DomService } from './services/dom.service';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { TextInputComponent } from './components/text-input/text-input.component
   imports: [
     BrowserModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [DomService],
+  bootstrap: [AppComponent],
+  entryComponents: [ TextInputComponent ]
 })
 export class AppModule { }
