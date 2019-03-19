@@ -19,6 +19,6 @@ import { CheckBoxComponent } from './components/check-box/check-box.component';
   ],
   providers: [DomService],
   bootstrap: [AppComponent],
-  entryComponents: [ TextInputComponent ]
+  entryComponents: [ TextInputComponent, NumberInputComponent, CheckBoxComponent ]
 })
 export class AppModule { }

@@ -3,7 +3,8 @@ import {
   Injector,
   ComponentFactoryResolver,
   EmbeddedViewRef,
-  ApplicationRef
+  ApplicationRef,
+  ComponentRef
 } from '@angular/core';
 
 @Injectable({
@@ -16,15 +17,20 @@ export class DomService {
     private appRef: ApplicationRef,
     private injector: Injector) { }
 
-  appendComponentToRootElement(component: any, data: any) {
+  appendComponentToRootElement(component: any, data: any, key: any, step: number, parentComponent) {
     // 1. Create a component reference from the component
     const componentRef = this.componentFactoryResolver
       .resolveComponentFactory(component)
       .create(this.injector);
 
+
     const componentInstance = (componentRef.instance as any);
-    componentInstance.key = Object.keys(data)[0];
-    componentInstance.value = Object.values(data)[0];
+    componentInstance.key = key;
+    if (typeof data !== 'object') {
+      componentInstance.value = data;
+    }
+
+    componentInstance.margin = `${step * 20}px`;
 
     // 2. Attach component to the appRef so that it's inside the ng component tree
     this.appRef.attachView(componentRef.hostView);
@@ -34,7 +40,14 @@ export class DomService {
       .rootNodes[0] as HTMLElement;
 
     // 4. Append DOM element to the body
-    document.body.appendChild(domElem);
+    parentComponent.appendChild(domElem);
+
+    return this.getDomElementFromComponentRef(componentRef).querySelector('p');
+  }
+
+  getDomElementFromComponentRef(componentRef: ComponentRef<any>): HTMLElement {
+    return (componentRef.hostView as EmbeddedViewRef<any>)
+        .rootNodes[0] as HTMLElement;
   }
 
 }
