@@ -26,11 +26,18 @@ export class DomService {
 
     const componentInstance = (componentRef.instance as any);
     componentInstance.key = key;
+    componentInstance.margin = `${step * 20}px`;
     if (typeof data !== 'object') {
       componentInstance.value = data;
     }
 
-    componentInstance.margin = `${step * 20}px`;
+    if (typeof data === 'string') {
+      componentInstance.inputType = 'text';
+    }
+
+    if (typeof data === 'number') {
+      componentInstance.inputType = 'number';
+    }
 
     // 2. Attach component to the appRef so that it's inside the ng component tree
     this.appRef.attachView(componentRef.hostView);

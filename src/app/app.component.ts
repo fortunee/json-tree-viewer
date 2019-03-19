@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { DomService } from './services/dom.service';
-import { TextInputComponent } from './components/text-input/text-input.component';
 
 import source from '../assets/source-object-example.json';
-import { NumberInputComponent } from './components/number-input/number-input.component';
 import { CheckBoxComponent } from './components/check-box/check-box.component';
+import { InputComponent } from './components/input/input.component';
 
 @Component({
   selector: 'app-root',
@@ -29,11 +28,11 @@ export class AppComponent {
       // Stack DS approach
       const immediate = this.parents.length ? this.parents[this.parents.length - 1] : document.body;
       if (typeof data[key] === 'object' && data[key] !== null) {
-        const component = this.returnComponent(key, data[key]);
+        const component = this.returnComponent(data[key]);
         this.parents.push(this.domService.appendComponentToRootElement(component, data[key], key, this.step, immediate));
         this.displayData(data[key]);
       } else {
-        const component = this.returnComponent(key, data[key]);
+        const component = this.returnComponent(data[key]);
 
         this.domService.appendComponentToRootElement(component, data[key], key, this.step, immediate);
       }
@@ -47,14 +46,14 @@ export class AppComponent {
     }
   }
 
-  returnComponent(key, value) {
+  returnComponent(value) {
     switch (typeof value) {
       case 'string': {
-        return TextInputComponent;
+        return InputComponent;
       }
 
       case 'number': {
-        return NumberInputComponent;
+        return InputComponent;
       }
 
       case 'boolean': {
@@ -72,7 +71,7 @@ export class AppComponent {
       }
 
       default:
-        return TextInputComponent;
+        return InputComponent;
     }
   }
 }
