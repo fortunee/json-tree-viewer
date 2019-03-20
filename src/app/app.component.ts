@@ -49,30 +49,19 @@ export class AppComponent {
 
   returnComponent(value) {
     switch (typeof value) {
-      case 'string': {
-        return InputComponent;
-      }
-
-      case 'number': {
-        return InputComponent;
-      }
-
       case 'boolean': {
         return CheckBoxComponent;
       }
 
       case 'object': {
-        /**
-         * Object component children style
-         *    height: 20px;
-         *    overflow: hidden;
-         *    margin-left: 0px;
-         */
         return ObjectNestComponent;
       }
 
-      default:
+      case 'string':
+      case 'number':
+      default: {
         return InputComponent;
+      }
     }
   }
 }

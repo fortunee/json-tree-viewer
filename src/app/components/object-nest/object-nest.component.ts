@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./object-nest.component.scss']
 })
 export class ObjectNestComponent implements OnInit {
+  collapsed = false;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  collapseAndExpand(event) {
+    this.collapsed = !this.collapsed;
+  }
 }
