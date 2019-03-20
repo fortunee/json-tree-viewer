@@ -1,0 +1,14 @@
+.nested {
+    cursor: pointer;
+    background: #e5f5fb;
+    border-radius: 2px;
+    width: 510px;
+    height: 500px;
+    transition: height .8s ease-out;
+    overflow: hidden;
+}
+
+.collapse {
+    height: 18px;
+    overflow: hidden;
+}
