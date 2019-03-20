@@ -4,6 +4,7 @@ import { DomService } from './services/dom.service';
 import source from '../assets/source-object-example.json';
 import { CheckBoxComponent } from './components/check-box/check-box.component';
 import { InputComponent } from './components/input/input.component';
+import { ObjectNestComponent } from './components/object-nest/object-nest.component';
 
 @Component({
   selector: 'app-root',
@@ -67,7 +68,7 @@ export class AppComponent {
          *    overflow: hidden;
          *    margin-left: 0px;
          */
-        return CheckBoxComponent;
+        return ObjectNestComponent;
       }
 
       default:
