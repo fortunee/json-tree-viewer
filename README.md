@@ -10,11 +10,11 @@ It displays:
    
    - A `string` in text input
 
-    - A `number` in number input
+   - A `number` in number input
 
-    - A `boolean` as a checkbox with value checked if boolean is true and unchecked if boolean is false
+   - A `boolean` as a checkbox with value checked if boolean is true and unchecked if boolean is false
 
-    - An `object` as a nested object that should be collapsible and extendible 
+   - An `object` as a nested object that should be collapsible and extendible 
 
 ## How to start development server
 
