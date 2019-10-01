@@ -23,7 +23,6 @@ export class DomService {
       .resolveComponentFactory(component)
       .create(this.injector);
 
-
     const componentInstance = (componentRef.instance as any);
     componentInstance.key = key;
     componentInstance.margin = `${step * 20}px`;
