@@ -1,10 +1,10 @@
 # JsonTreeLikeViewer
 
-This is a tree-like view of an arbitrary multilevel JSON object currently being developed with Angular 7
+This is a tree-like view of an arbitrary multi-level JSON object developed with Angular 7
 
 ## How it works.
 
-Given an arbitrary multilevel JSON object.
+Given an arbitrary multi-level JSON object.
 
 It displays:
    
